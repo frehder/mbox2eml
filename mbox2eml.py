@@ -84,7 +84,7 @@ folder_name = os.path.basename(args.file).replace(".mbox", folder_suffix)
 output_dir = os.path.join(args.output, folder_name)
 # print ("output_dir: %s") % output_dir
 
-if not os.path.isdir(output_dir):
+if os.path.isdir(output_dir) == False:
     try:
         os.mkdir(output_dir)
     except OSError:
