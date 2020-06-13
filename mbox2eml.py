@@ -5,6 +5,7 @@ import sys
 import time
 import calendar
 import hashlib
+from distutils.util import strtobool
 
 
 #
@@ -50,6 +51,27 @@ with open(args.file, "r") as mbox_file:
 
 if email_amount_estimate >= 0:
     print ("Estimated amount of emails to create: %d" % email_amount_estimate)
+
+
+#
+# Prompt for start
+#
+yes = {'yes','y'}
+no = {'no','n', ''}
+choice = raw_input('Start process? [y|n] ').lower()
+start_process = False
+
+if choice in yes:
+    start_process = True
+elif choice in no:
+    start_process = False
+    sys.exit('Aborted.')
+else:
+    start_process = False
+    sys.exit('Please answer y or n.')
+
+if start_process == False:
+    sys.exit('Aborted.')
 
 
 #
