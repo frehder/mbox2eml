@@ -35,6 +35,9 @@ File extension of the created email files. (Optional. Default: eml)
 `-t, --hastimestamp 1|0`
 Should the created folder for the emails inside of --file have an unix-timestamp added? To prevent name collisions. (Optional. Default: 1)
 
+`-s, --silent`
+If set the script will start immediately without asking the user first. (Optional. No argument.)
+
 # Output
 
 There will be a folder created in the given `target_directory` which then includes the eml files. The folder structure will look like this:
