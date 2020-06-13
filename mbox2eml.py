@@ -1,6 +1,7 @@
 
 import argparse
 import os
+import sys
 import time
 import calendar
 import hashlib
@@ -34,7 +35,7 @@ output_dir = os.path.join(args.output, folder_name)
 try:
     os.mkdir(output_dir)
 except OSError:
-    print ("ERR Creation of the directory '%s' failed" % output_dir)
+    sys.exit("ERR Creation of the directory '%s' failed" % output_dir)
 
 #
 # Create mapping of month-abbr -> month-numbers
