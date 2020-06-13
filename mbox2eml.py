@@ -84,10 +84,13 @@ folder_name = os.path.basename(args.file).replace(".mbox", folder_suffix)
 output_dir = os.path.join(args.output, folder_name)
 # print ("output_dir: %s") % output_dir
 
-try:
-    os.mkdir(output_dir)
-except OSError:
-    sys.exit("ERR Creation of the directory '%s' failed" % output_dir)
+if not os.path.isdir(output_dir):
+    try:
+        os.mkdir(output_dir)
+    except OSError:
+        sys.exit("ERR Creation of the directory '%s' failed" % output_dir)
+else:
+    print ("Directory already exist: '%s' " % output_dir)
 
 
 #
