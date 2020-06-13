@@ -6,6 +6,7 @@ import time
 import calendar
 import hashlib
 
+
 #
 # Get arguments
 #
@@ -22,6 +23,13 @@ output_file_ext = 'eml' if args.ext is None else args.ext
 has_output_folder_timestamp = True if args.hastimestamp is 1 else False
 # print ("has_output_folder_timestamp: %s") % has_output_folder_timestamp
 
+
+#
+# Create mapping of month-abbr -> month-numbers
+#
+month_abbr_to_int = {name: num for num, name in enumerate(calendar.month_abbr) if num}
+
+
 #
 # Create output folder
 #
@@ -37,10 +45,6 @@ try:
 except OSError:
     sys.exit("ERR Creation of the directory '%s' failed" % output_dir)
 
-#
-# Create mapping of month-abbr -> month-numbers
-#
-month_abbr_to_int = {name: num for num, name in enumerate(calendar.month_abbr) if num}
 
 #
 # Loop lines of given file
