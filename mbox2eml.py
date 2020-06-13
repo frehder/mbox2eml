@@ -16,6 +16,8 @@ parser.add_argument("--file", "-f", type=str, required=True, help='Input .mbox f
 parser.add_argument("--output", "-o", type=str, required=True, help='Output directory, where the .eml files should go.')
 parser.add_argument("--ext", "-e", type=str, required=False, default='eml', help='File extension of the created email files. (Optional. Default: eml)')
 parser.add_argument("--hastimestamp", "-t", type=int, required=False, default=1, help='Should the created folder for the emails inside of --file have an unix-timestamp added? To prevent name collisions. (Optional. Default: 1)')
+parser.add_argument("--silent", "-s", action='store_true', required=False, help='If set the script will start immediately without asking the user first. (Optional. No argument.)')
+
 args = parser.parse_args()
 
 output_file_ext = 'eml' if args.ext is None else args.ext
@@ -23,6 +25,9 @@ output_file_ext = 'eml' if args.ext is None else args.ext
 
 has_output_folder_timestamp = True if args.hastimestamp is 1 else False
 # print ("has_output_folder_timestamp: %s") % has_output_folder_timestamp
+
+prompt_at_start = True if args.silent is False else False
+# print ("prompt_at_start: %s") % prompt_at_start
 
 
 #
@@ -58,7 +63,7 @@ if email_amount_estimate >= 0:
 #
 yes = {'yes','y'}
 no = {'no','n', ''}
-choice = raw_input('Start process? [y|n] ').lower()
+choice = raw_input('Start process? [y|n] ').lower() if prompt_at_start == True else 'y'
 start_process = False
 
 if choice in yes:
