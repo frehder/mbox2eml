@@ -61,6 +61,12 @@ The output will be as follows:
             …
 ```
 
+# Duplicate Handling
+
+If the directory where the .eml files should go already exists, the existing directory will be used.
+
+If there is already an .eml file at the destination, the creation of this .eml file is skipped. After the processing is finished there is a summary of how many files have been skipped.
+
 # License
 
 MIT License
