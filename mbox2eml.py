@@ -98,6 +98,7 @@ else:
 #
 blank_lines_count = 2
 file_count = 0
+file_skipped_count = 0
 is_dupe = False
 
 with open(args.file, "r") as mbox_file:
@@ -138,6 +139,7 @@ with open(args.file, "r") as mbox_file:
             is_dupe = True if os.path.isfile(file_output) == True else False
 
             if is_dupe == True:
+                file_skipped_count += 1
                 print ("File skipped: '%s'" % file_output)
                 continue
 
@@ -178,4 +180,6 @@ with open(args.file, "r") as mbox_file:
         else:
             blank_lines_count = 0
 
-print ("Done. Saved %d files." % file_count)
+print ("Done.")
+print ("Created %d files." % file_count)
+print ("Skipped %d files." % file_skipped_count)
