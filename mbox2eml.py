@@ -49,6 +49,9 @@ blank_lines_count = 2
 file_count = 0
 
 with open(args.file, "r") as mbox_file:
+    print ("Processing file: '%s'" % args.file)
+    print ("Please wait ...")
+
     for line in mbox_file:
         line_stripped = line.strip()
         line_parts = line_stripped.split(' ')
@@ -107,4 +110,4 @@ with open(args.file, "r") as mbox_file:
         else:
             blank_lines_count = 0
 
-print ("Saved %d files." % file_count)
+print ("Done. Saved %d files." % file_count)
