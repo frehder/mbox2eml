@@ -26,6 +26,12 @@ The mbox file with your emails. Emails should start with `From<space>` and end w
 `-o, --output target_directory`
 Directory you want the eml files to go. It will create a new directory in the target_directory with the name of the mbox file and a unix timestamp added to it.
 
+`-e, --ext`
+File extension of the created email files. (Optional. Default: eml)
+
+`-t, --hastimestamp`
+Should the created folder for the emails inside of --file have an unix-timestamp added? To prevent name collisions. (Optional. Default: 1)
+
 # Output
 
 There will be a folder created in the given `target_directory` which then includes the eml files. The folder structure will look like this:
@@ -37,8 +43,6 @@ The outputted .eml files will have a filename created from the `From ` lines of 
 ```
 YYYY-MM-DD HHMMSS <Truncated_SHA-1_Hash_of_the_whole_`From `_line>.eml
 ```
-
-
 
 # Example
 
