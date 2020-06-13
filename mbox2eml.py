@@ -98,6 +98,7 @@ else:
 #
 blank_lines_count = 2
 file_count = 0
+is_dupe = False
 
 with open(args.file, "r") as mbox_file:
     print ("Processing file: '%s'" % args.file)
@@ -132,10 +133,20 @@ with open(args.file, "r") as mbox_file:
             # print ("file_output: %s") % file_output
 
             #
+            # Handle duplicates
+            #
+            is_dupe = True if os.path.isfile(file_output) == True else False
+
+            if is_dupe == True:
+                print ("File skipped: '%s'" % file_output)
+                continue
+
+            #
             # Create file
             #
             new_file = open(file_output, "a")
             file_count += 1
+            print ("File created: '%s'" % file_output)
 
             #
             #  Write line to file
@@ -143,6 +154,12 @@ with open(args.file, "r") as mbox_file:
             new_file.write("%s" % line)
 
         else:
+            #
+            # Handle duplicates
+            #
+            if is_dupe == True:
+                continue
+
             #
             # Open file
             #
