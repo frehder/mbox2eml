@@ -31,6 +31,28 @@ month_abbr_to_int = {name: num for num, name in enumerate(calendar.month_abbr) i
 
 
 #
+# Count emails to print an estimation
+#
+estimate_blank_lines_count = 2
+email_amount_estimate = 0;
+
+with open(args.file, "r") as mbox_file:
+    for line in mbox_file:
+        line_stripped = line.strip()
+
+        if estimate_blank_lines_count >= 1 and line_stripped.startswith('From '):
+            email_amount_estimate += 1
+
+        if line_stripped == '':
+            estimate_blank_lines_count += 1
+        else:
+            estimate_blank_lines_count = 0
+
+if email_amount_estimate >= 0:
+    print ("Estimated amount of emails to create: %d" % email_amount_estimate)
+
+
+#
 # Create output folder
 #
 folder_suffix = " {}".format(int(time.time())) if has_output_folder_timestamp == True else ""
