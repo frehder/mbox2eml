@@ -20,16 +20,19 @@ I made it to create an eml file for every email in a mbox-file you get from your
 python mbox2eml.py [-f | --file] source_file.mbox [-o | --output] target_directory
 ```
 
+`-h, --help`
+Show the options documentation. (Optional. No arguments.)
+
 `-f, --file source_file.mbox`
 The mbox file with your emails. Emails should start with `From<space>` and end with an empty line.
 
 `-o, --output target_directory`
 Directory you want the eml files to go. It will create a new directory in the target_directory with the name of the mbox file and a unix timestamp added to it.
 
-`-e, --ext`
+`-e, --ext extension_string`
 File extension of the created email files. (Optional. Default: eml)
 
-`-t, --hastimestamp`
+`-t, --hastimestamp 1|0`
 Should the created folder for the emails inside of --file have an unix-timestamp added? To prevent name collisions. (Optional. Default: 1)
 
 # Output
