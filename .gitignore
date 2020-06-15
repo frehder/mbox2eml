@@ -130,3 +130,6 @@ dmypy.json
 
 todo.md
 todo.txt
+
+.vscode
+.vscode*
