@@ -23,7 +23,7 @@ args = parser.parse_args()
 output_file_ext = 'eml' if args.ext is None else args.ext
 # print ("output_file_ext: %s") % output_file_ext
 
-has_output_folder_timestamp = True if args.hastimestamp is 1 else False
+has_output_folder_timestamp = True if args.hastimestamp == 1 else False
 # print ("has_output_folder_timestamp: %s") % has_output_folder_timestamp
 
 prompt_at_start = True if args.silent is False else False
@@ -63,7 +63,7 @@ if email_amount_estimate >= 0:
 #
 yes = {'yes','y'}
 no = {'no','n', ''}
-choice = raw_input('Start process? [y|n] ').lower() if prompt_at_start == True else 'y'
+choice = input('Start process? [y|n] ').lower() if prompt_at_start == True else 'y'
 start_process = False
 
 if choice in yes:
