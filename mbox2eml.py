@@ -23,7 +23,7 @@ args = parser.parse_args()
 output_file_ext = 'eml' if args.ext is None else args.ext
 # print ("output_file_ext: %s") % output_file_ext
 
-has_output_folder_timestamp = True if args.hastimestamp is 1 else False
+has_output_folder_timestamp = True if args.hastimestamp == 1 else False
 # print ("has_output_folder_timestamp: %s") % has_output_folder_timestamp
 
 prompt_at_start = True if args.silent is False else False
