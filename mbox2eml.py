@@ -63,7 +63,7 @@ if email_amount_estimate >= 0:
 #
 yes = {'yes','y'}
 no = {'no','n', ''}
-choice = raw_input('Start process? [y|n] ').lower() if prompt_at_start == True else 'y'
+choice = input('Start process? [y|n] ').lower() if prompt_at_start == True else 'y'
 start_process = False
 
 if choice in yes:
