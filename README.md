@@ -1,6 +1,10 @@
 
 # mbox2eml
 
+**This project is no longer maintained. I don't use this anymore by myself and don't have the time to maintain it any further. Feel free to fork and modify as you like.**
+
+---
+
 Python Script to create .eml files for every email in an mbox file.
 
 **Use at your own risk. Please make a backup before you run it.**
